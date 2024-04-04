@@ -3,3 +3,25 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+.fb-content {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+        "header header"
+        "side main"
+}
+
+.fb-header {
+    grid-area: header;
+}
+
+.fb-sidebar {
+    grid-area: side;
+}
+
+.fb-main {
+    grid-area: main;
+}

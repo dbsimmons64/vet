@@ -10,20 +10,12 @@ module.exports = {
     "./js/**/*.js",
     "../lib/vet_web.ex",
     "../lib/vet_web/**/*.*ex",
+    "/Users/davidsimmons/elixir/library/fibril/lib/**/*.*ex"
 
 
   ],
-  theme: {
-    extend: {
-      colors: {
-        brand: "#7f00fd",
-
-
-      }
-    },
-  },
+  theme: {},
   plugins: [
-    require('daisyui'),
 
     // Allows prefixing tailwind classes with LiveView classes to add rules
     // only when LiveView classes are applied, for example:
@@ -75,6 +67,8 @@ module.exports = {
           }
         }
       }, { values })
-    })
+    }),
+    require('daisyui'),
+
   ]
 }

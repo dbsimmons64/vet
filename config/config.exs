@@ -62,6 +62,7 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :fibril,
+  application_name: :vet,
   repo: Vet.Repo,
   endpoint: VetWeb.Endpoint
 
