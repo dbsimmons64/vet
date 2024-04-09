@@ -24,7 +24,9 @@ defmodule Fibril.Resource.Pets do
   def table() do
     %{
       fields: [
-        :name
+        %{name: :name},
+        %{name: :date_of_birth},
+        %{name: [:owner, :name]}
       ]
     }
   end
