@@ -37,16 +37,27 @@ defmodule Fibril.Resource.Pets do
         %{name: :name},
         %{name: :date_of_birth},
         %{name: :type},
-        %{name: [:owner, :name]}
+        %{name: [:owner, :name]},
+        %{name: :age, display_type: :calculated, calculation: [&calculate_age/1, :record]}
       ],
       pagination: %{
         page_size: 2
-      },
-      foo: [&hello/2, :table_opts, :foo]
+      }
     }
   end
 
-  def hello(name, other) do
-    "Page size is #{name}"
+  def calculate_age(record) do
+    years = Timex.diff(Date.utc_today(), record.date_of_birth, :years)
+    months = Timex.diff(Date.utc_today(), record.date_of_birth, :months)
+    months = months - years * 12
+
+    case {years, months} do
+      {0, 0} -> "less than a month"
+      {0, 1} -> "1 month"
+      {1, 0} -> "1 year"
+      {1, 1} -> "1 year and 1 month"
+      {_, 1} -> "#{years} years and 1 month"
+      {_, _} -> "#{years} years and #{months} months"
+    end
   end
 end

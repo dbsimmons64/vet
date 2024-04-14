@@ -64,6 +64,7 @@ config :phoenix, :json_library, Jason
 config :fibril,
   application_name: :vet,
   repo: Vet.Repo,
+  auth: VetWeb.UserAuth,
   endpoint: VetWeb.Endpoint
 
 # Import environment specific config. This must remain at the bottom

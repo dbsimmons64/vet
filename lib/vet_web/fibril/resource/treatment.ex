@@ -29,7 +29,7 @@ defmodule Fibril.Resource.Treatments do
         :description,
         %{
           name: [:pet, :type],
-          hide: [&hide_dogs/1, :record]
+          hide: [&hide_dogs/1, :current_user]
         },
         %{
           name: :status,
@@ -47,10 +47,8 @@ defmodule Fibril.Resource.Treatments do
   end
 
   def hide_dogs(record) do
-    if record.pet.type == "Dog" do
-      true
-    else
-      false
-    end
+    dbg(record)
+
+    true
   end
 end

@@ -32,6 +32,7 @@ defmodule Vet.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.7.11"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
@@ -59,7 +60,8 @@ defmodule Vet.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       # {:fibril, github: "dbsimmons64/fibril"}
-      {:fibril, "~> 0.1.0", path: "/Users/davidsimmons/elixir/library/fibril"}
+      {:fibril, "~> 0.1.0", path: "/Users/davidsimmons/elixir/library/fibril"},
+      {:timex, "~> 3.0"}
     ]
   end
 
