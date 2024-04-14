@@ -5,6 +5,7 @@ defmodule Vet.Pets.Pet do
   schema "pets" do
     field :name, :string
     field :date_of_birth, :date
+    field :type, :string
 
     belongs_to :owner, Vet.Owners.Owner
     has_many :treatments, Vet.Treatments.Treatment
@@ -15,7 +16,7 @@ defmodule Vet.Pets.Pet do
   @doc false
   def changeset(pet, attrs) do
     pet
-    |> cast(attrs, [:name, :date_of_birth, :owner_id])
-    |> validate_required([:name, :date_of_birth, :owner_id])
+    |> cast(attrs, [:name, :date_of_birth, :type, :owner_id])
+    |> validate_required([:name, :date_of_birth, :type, :owner_id])
   end
 end

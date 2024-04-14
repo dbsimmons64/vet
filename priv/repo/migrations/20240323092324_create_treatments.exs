@@ -7,6 +7,7 @@ defmodule Vet.Repo.Migrations.CreateTreatments do
       add :notes, :text
       add :price, :integer
       add :pet_id, references(:pets, on_delete: :nothing)
+      add :status, :string
 
       timestamps(type: :utc_datetime)
     end

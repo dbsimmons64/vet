@@ -9,6 +9,16 @@ defmodule Fibril.Resource.Pets do
         :name,
         :date_of_birth,
         %{
+          name: :type,
+          label: "Genus of Animal",
+          html_type: :select,
+          options: %{
+            "dog" => "Dog",
+            "cat" => "Cat",
+            "rabbit" => "Rabbit"
+          }
+        },
+        %{
           name: :owner_id,
           value: :name,
           createOptionForm: %{
@@ -26,8 +36,17 @@ defmodule Fibril.Resource.Pets do
       fields: [
         %{name: :name},
         %{name: :date_of_birth},
+        %{name: :type},
         %{name: [:owner, :name]}
-      ]
+      ],
+      pagination: %{
+        page_size: 2
+      },
+      foo: [&hello/2, :table_opts, :foo]
     }
+  end
+
+  def hello(name, other) do
+    "Page size is #{name}"
   end
 end
