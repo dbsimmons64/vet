@@ -34,11 +34,38 @@ defmodule Fibril.Resource.Pets do
   def table() do
     %{
       fields: [
-        %{name: :name},
-        %{name: :date_of_birth},
-        %{name: :type},
-        %{name: [:owner, :name]},
-        %{name: :age, display_type: :calculated, calculation: [&calculate_age/1, :record]}
+        %{
+          name: :name,
+          description: %{
+            text: "This is a description",
+            position: :above
+          }
+        },
+        %{
+          name: :date_of_birth,
+          datetime: "%b %Y"
+        },
+        %{
+          name: :type,
+          badge: %{
+            colours: %{
+              "Dog" => "badge-neutral",
+              "Cat" => "badge-primary",
+              "Rabbit" => "badge-secondary"
+            },
+            outline: true
+          },
+          description: %{
+            text: "This is a description",
+            position: :below
+          }
+        },
+        [:owner, :name],
+        %{
+          name: :age,
+          display_type: :calculated,
+          calculation: [&calculate_age/1, :record]
+        }
       ],
       pagination: %{
         page_size: 2

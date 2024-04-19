@@ -27,6 +27,14 @@ defmodule Fibril.Resource.Treatments do
     %{
       fields: [
         :description,
+        :price,
+        %{
+          name: :price,
+          money: %{
+            currency: "£",
+            divide_by: 100
+          }
+        },
         %{
           name: [:pet, :type],
           hide: [&hide_dogs/1, :current_user]

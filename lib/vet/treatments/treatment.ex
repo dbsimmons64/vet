@@ -17,6 +17,7 @@ defmodule Vet.Treatments.Treatment do
   def changeset(treatment, attrs) do
     treatment
     |> cast(attrs, [:description, :notes, :price, :status, :pet_id])
+    |> dbg()
     |> validate_required([:description, :notes, :price, :status, :pet_id])
   end
 end
