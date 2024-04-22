@@ -29,6 +29,10 @@ defmodule Fibril.Resource.Treatments do
         :description,
         :price,
         %{
+          name: :notes,
+          html: true
+        },
+        %{
           name: :price,
           money: %{
             currency: "£",

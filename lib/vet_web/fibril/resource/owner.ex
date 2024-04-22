@@ -16,7 +16,8 @@ defmodule Fibril.Resource.Owners do
           name: :name,
           icon: %{
             name: "hero-envelope",
-            position: :before
+            position: :after,
+            colour: "text-blue-500"
           },
           badge: %{
             outline: true

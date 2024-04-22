@@ -36,9 +36,11 @@ defmodule Fibril.Resource.Pets do
       fields: [
         %{
           name: :name,
-          description: %{
-            text: "This is a description",
-            position: :above
+          text: %{
+            limit: 4
+            # words: 3
+            # prefix: "https//"
+            # suffix: ".com"
           }
         },
         %{
