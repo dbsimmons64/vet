@@ -52,8 +52,11 @@ defmodule Fibril.Resource.Pets do
               "Dog" => "badge-neutral",
               "Cat" => "badge-primary",
               "Rabbit" => "badge-secondary"
-            },
-            outline: true
+            }
+          },
+          icon: %{
+            name: "hero-arrow-down",
+            position: :before
           },
           description: %{
             text: "This is a description",

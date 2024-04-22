@@ -11,7 +11,18 @@ defmodule Fibril.Resource.Owners do
 
   def table() do
     %{
-      fields: [:name]
+      fields: [
+        %{
+          name: :name,
+          icon: %{
+            name: "hero-envelope",
+            position: :before
+          },
+          badge: %{
+            outline: true
+          }
+        }
+      ]
     }
   end
 end
