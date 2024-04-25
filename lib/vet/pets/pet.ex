@@ -18,5 +18,6 @@ defmodule Vet.Pets.Pet do
     pet
     |> cast(attrs, [:name, :date_of_birth, :type, :owner_id])
     |> validate_required([:name, :date_of_birth, :type, :owner_id])
+    |> validate_length(:name, min: 4)
   end
 end

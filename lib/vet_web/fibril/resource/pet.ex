@@ -36,16 +36,12 @@ defmodule Fibril.Resource.Pets do
       fields: [
         %{
           name: :name,
-          text: %{
-            limit: 4
-            # words: 3
-            # prefix: "https//"
-            # suffix: ".com"
-          }
+          display_type: :input
         },
         %{
           name: :date_of_birth,
-          datetime: "%b %Y"
+          datetime: "%b %Y",
+          display_type: :input
         },
         %{
           name: :type,
@@ -69,7 +65,8 @@ defmodule Fibril.Resource.Pets do
         %{
           name: :age,
           display_type: :calculated,
-          calculation: [&calculate_age/1, :record]
+          calculation: [&calculate_age/1, :record],
+          colour: "text-blue-300"
         }
       ],
       pagination: %{

@@ -26,11 +26,14 @@ defmodule Fibril.Resource.Treatments do
   def table() do
     %{
       fields: [
-        :description,
+        %{
+          name: :description,
+          display_type: :input
+        },
         :price,
         %{
           name: :notes,
-          html: true
+          display_type: :input
         },
         %{
           name: :price,
