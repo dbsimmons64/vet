@@ -6,8 +6,14 @@ defmodule Fibril.Resource.Treatments do
   def form() do
     %{
       fields: [
-        :description,
-        :notes,
+        %{
+          name: :description,
+          html_type: :textarea
+        },
+        %{
+          name: :notes,
+          html_type: :textarea
+        },
         :price,
         %{
           name: :status,
@@ -26,14 +32,15 @@ defmodule Fibril.Resource.Treatments do
   def table() do
     %{
       fields: [
-        %{
-          name: :description,
-          display_type: :input
-        },
+        :description,
         :price,
         %{
           name: :notes,
-          display_type: :input
+          display_type: :textarea,
+          textarea: %{
+            colour: "text-red-500",
+            html: true
+          }
         },
         %{
           name: :price,
@@ -41,22 +48,29 @@ defmodule Fibril.Resource.Treatments do
             currency: "£",
             divide_by: 100
           }
-        },
-        %{
-          name: [:pet, :type],
-          hide: [&hide_dogs/1, :current_user]
-        },
-        %{
-          name: :status,
-          hide: false,
-          display_type: :icon,
-          options: %{
-            "New" => "hero-arrow-path",
-            "Issued" => "hero-paint-brush",
-            "Paid" => "hero-face-smile"
-          }
-        },
-        %{name: [:pet, :name], label: "Pet"}
+        }
+        # %{
+        #   name: [:pet, :type],
+        #   hide: [&hide_dogs/1, :current_user]
+        # },
+        # %{
+        #   name: :status,
+        #   hide: false,
+        #   display_type: :icon,
+        #   icon: %{
+        #     name: %{
+        #       "New" => "hero-arrow-path",
+        #       "Issued" => "hero-paint-brush",
+        #       "Paid" => "hero-face-smile"
+        #     },
+        #     size: %{width: 48, height: 48}
+        #   },
+        #   description: %{
+        #     text: "This is a description",
+        #     position: :above
+        #   }
+        # },
+        # %{name: [:pet, :name], label: "Pet"}
       ]
     }
   end

@@ -36,36 +36,51 @@ defmodule Fibril.Resource.Pets do
       fields: [
         %{
           name: :name,
-          display_type: :input
-        },
-        %{
-          name: :type,
-          # badge: %{
-          #   colours: %{
-          #     "Dog" => "badge-neutral",
-          #     "Cat" => "badge-primary",
-          #     "Rabbit" => "badge-secondary"
-          #   }
-          # },
+          display_type: :text,
+          text: %{
+            colour: "text-red-500"
+          },
           icon: %{
             name: "hero-envelope",
             position: :before
           },
+          description: %{
+            text: "This is a description",
+            position: :below
+          },
           badge: true
-
-          # description: %{
-          #   text: "This is a description",
-          #   position: :below
-          # }
-        },
-        %{
-          name: :date_of_birth,
-          datetime: "%b %Y"
-        },
-        %{
-          name: [:owner, :name],
-          label: "Owner"
         }
+        # %{
+        #   name: :type,
+        #   colour: "text-red-500",
+
+        #   # badge: %{
+        #   #   colours: %{
+        #   #     "Dog" => "badge-neutral",
+        #   #     "Cat" => "badge-primary",
+        #   #     "Rabbit" => "badge-secondary"
+        #   #   }
+        #   # },
+        #   icon: %{
+        #     name: "hero-envelope",
+        #     position: :before,
+        #     colour: "text-blue-500"
+        #   }
+        #   # badge: true
+        # },
+        # %{
+        #   name: :date_of_birth,
+        #   datetime: "%b %Y",
+        #   icon: %{
+        #     name: "hero-envelope",
+        #     position: :before
+        #   },
+        #   badge: false
+        # },
+        # %{
+        #   name: [:owner, :name],
+        #   label: "Owner"
+        # }
         # %{
         #   name: :age,
         #   display_type: :calculated,
