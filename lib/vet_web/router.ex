@@ -3,7 +3,7 @@ defmodule VetWeb.Router do
 
   import VetWeb.UserAuth
 
-  import FibrilWeb.Router
+  import RadianceWeb.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -46,7 +46,7 @@ defmodule VetWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
 
-    fibril_admin([:browser, :require_authenticated_user])
+    radiance_admin([:browser, :require_authenticated_user])
   end
 
   ## Authentication routes

@@ -26,9 +26,36 @@ let Hooks = {}
 Hooks.Edit = {
   mounted() {
     this.el.addEventListener('blur', event => {
+      console.log("Blur event called")
 
       this.pushEventTo(this.el, 'update',
         { content: this.el.value, id: this.el.dataset.id, name: this.el.name },
+        (reply) => {
+          newElement = document.createElement('div')
+          newElement.classList.add("text-red-500");
+          newElement.textContent = reply.errors[this.el.name]
+          this.el.nextSibling.replaceWith(newElement)
+
+        }
+
+      )
+    })
+  }
+}
+
+Hooks.Toggle = {
+  mounted() {
+    this.el.addEventListener('change', event => {
+      console.log("Blur event called")
+
+      if (event.target.checked) {
+        console.log("Checked");
+      } else {
+        console.log("Not checked");
+      }
+
+      this.pushEventTo(this.el, 'update',
+        { content: event.target.checked, id: this.el.dataset.id, name: this.el.name },
         (reply) => {
           newElement = document.createElement('div')
           newElement.classList.add("text-red-500");

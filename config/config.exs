@@ -61,7 +61,7 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :fibril,
+config :radiance,
   application_name: :vet,
   repo: Vet.Repo,
   auth: VetWeb.UserAuth,

@@ -60,7 +60,7 @@ defmodule Vet.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       # {:fibril, github: "dbsimmons64/fibril"}
-      {:fibril, "~> 0.1.0", path: "/Users/davidsimmons/elixir/library/fibril"},
+      {:radiance, "~> 0.1.0", path: "/Users/davidsimmons/elixir/library/radiance"},
       {:timex, "~> 3.0"}
     ]
   end

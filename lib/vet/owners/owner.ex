@@ -4,6 +4,7 @@ defmodule Vet.Owners.Owner do
 
   schema "owners" do
     field :name, :string
+    field :active, :boolean, default: true
 
     has_many :pets, Vet.Pets.Pet
 
@@ -13,7 +14,7 @@ defmodule Vet.Owners.Owner do
   @doc false
   def changeset(owner, attrs) do
     owner
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :active])
+    |> validate_required([:name, :active])
   end
 end

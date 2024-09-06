@@ -4,6 +4,7 @@ defmodule Vet.Repo.Migrations.CreateOwners do
   def change do
     create table(:owners) do
       add :name, :string
+      add :active, :boolean
 
       timestamps(type: :utc_datetime)
     end

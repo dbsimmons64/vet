@@ -1,6 +1,6 @@
-defmodule Fibril.Resource.Treatments do
+defmodule Radiance.Resource.Treatments do
   def resource do
-    %{module: Vet.Treatments.Treatment, name: "treatment", plural: "treatments"}
+    %{schema: Vet.Treatments.Treatment, name: "treatment", plural: "treatments"}
   end
 
   def form() do
@@ -14,7 +14,10 @@ defmodule Fibril.Resource.Treatments do
           name: :notes,
           html_type: :textarea
         },
-        :price,
+        %{
+          name: :price,
+          html_type: :text
+        },
         %{
           name: :status,
           html_type: :select,
@@ -31,24 +34,25 @@ defmodule Fibril.Resource.Treatments do
 
   def table() do
     %{
-      fields: [
+      columns: [
         :description,
-        :price,
         %{
           name: :notes,
-          display_type: :textarea,
-          textarea: %{
-            colour: "text-red-500",
-            html: true
-          }
-        },
-        %{
-          name: :price,
-          money: %{
-            currency: "£",
-            divide_by: 100
-          }
+          display_type: :textarea
+          # textarea: %{
+          #   colour: "text-red-500",
+          #   html: true
+          # }
         }
+        # %{
+        #   name: :price,
+        #   display_type: :money,
+        # money: %{
+        #   currency: "£"
+        #   # divide_by: 100
+        # },
+        #   icon: "hero-envelop"
+        # }
         # %{
         #   name: [:pet, :type],
         #   hide: [&hide_dogs/1, :current_user]
